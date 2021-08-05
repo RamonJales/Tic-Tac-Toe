@@ -20,5 +20,4 @@ public class TicTacToeMatch {
 		}
 		return mat;
 	}
-	
 }

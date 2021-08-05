@@ -28,4 +28,10 @@ public class Board {
 		return figures[position.getRow()][position.getColumn()];
 	}
 	
+	public void placeFigure(Figure figure, Position position) {
+		figures[position.getRow()][position.getColumn()] = figure;
+		figure.position = position;
+	}
+	
+	
 }
