@@ -20,4 +20,12 @@ public class Board {
 		return columns;
 	}
 	
+	public Figure figure(int row, int column) {
+		return figures[row][column];
+	}
+	
+	public Figure figure(Position position) {
+		return figures[position.getRow()][position.getColumn()];
+	}
+	
 }
