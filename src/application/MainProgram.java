@@ -1,7 +1,9 @@
 package application;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import ticTacToe.TicTacToeException;
 import ticTacToe.TicTacToeMatch;
 import ticTacToe.TicTacToePosition;
 
@@ -15,18 +17,29 @@ public class MainProgram {
 		
 		
 		while (true) {
-			
-			UI.printBoard(match.getFigures());
-			
-			System.out.print("Position: ");
-			String pos = sc.next();
-			TicTacToePosition position = UI.readChessPosition(pos);
-			
-			System.out.print("Figure: ");
-			char figure = sc.next().toUpperCase().charAt(0);
-			
-			UI.puttingDuringGame(position.getColumn(), position.getRow(), figure, match);
+			try {
+				UI.clearScreen();
+				UI.printBoard(match.getFigures());
+				
+				System.out.print("Position: ");
+				String pos = sc.next();
+				TicTacToePosition position = UI.readChessPosition(pos);
+				
+				System.out.print("Figure: ");
+				char figure = sc.next().toUpperCase().charAt(0);
+				
+				UI.puttingDuringGame(position.getColumn(), position.getRow(), figure, match);
+			}
+			catch (TicTacToeException e) {
+				System.out.println(e.getMessage());
+				sc.nextLine();
+			}
+			catch (InputMismatchException e) {
+				System.out.println(e.getMessage());
+				sc.nextLine();
+			}
+
 		}
-		
+
 	}
 }

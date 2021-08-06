@@ -27,4 +27,5 @@ public class TicTacToeMatch {
 	public void placeNewFigure(char column, int row, TicTacToeFigure figure) {
 		board.placeFigure(figure, new TicTacToePosition(row, column).toPosition());
 	}
+	
 }
