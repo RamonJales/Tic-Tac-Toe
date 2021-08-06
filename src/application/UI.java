@@ -1,6 +1,9 @@
 package application;
 
 import ticTacToe.TicTacToeFigure;
+import ticTacToe.TicTacToeMatch;
+import ticTacToe.figures.O;
+import ticTacToe.figures.X;
 
 public class UI {
 	
@@ -24,6 +27,18 @@ public class UI {
 			System.out.print(figure);
 		}
 		System.out.print(" ");
+	}
+	
+	protected static void puttingDuringGame(char column, int row, char figure, TicTacToeMatch match) {
+		if (figure == 'X') {
+			match.placeNewFigure(column, row, new X(match.getBoard()));
+		}
+		else if (figure == 'O'){
+			match.placeNewFigure(column, row, new O(match.getBoard()));
+		}
+		else {
+			System.out.println("The only figures that exist are X or O!");
+		}
 	}
 	
 }
