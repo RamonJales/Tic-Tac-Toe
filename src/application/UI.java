@@ -1,7 +1,10 @@
 package application;
 
+import java.util.InputMismatchException;
+
 import ticTacToe.TicTacToeFigure;
 import ticTacToe.TicTacToeMatch;
+import ticTacToe.TicTacToePosition;
 import ticTacToe.figures.O;
 import ticTacToe.figures.X;
 
@@ -40,5 +43,17 @@ public class UI {
 			System.out.println("The only figures that exist are X or O!");
 		}
 	}
+	
+	public static TicTacToePosition readChessPosition(String pos) {
+		try {
+			char column = pos.charAt(0);
+			int row = Integer.parseInt(pos.substring(1));
+			return new TicTacToePosition(row, column);
+		}
+		catch (RuntimeException e) {
+			throw new InputMismatchException("Error reading ChessPosition. Valid values are from a1 to c3.");
+		}
+	}
+	
 	
 }

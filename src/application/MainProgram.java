@@ -3,8 +3,7 @@ package application;
 import java.util.Scanner;
 
 import ticTacToe.TicTacToeMatch;
-import ticTacToe.figures.O;
-import ticTacToe.figures.X;
+import ticTacToe.TicTacToePosition;
 
 public class MainProgram {
 
@@ -14,16 +13,19 @@ public class MainProgram {
 		
 		TicTacToeMatch match = new TicTacToeMatch();
 		
-		UI.printBoard(match.getFigures());
 		
 		while (true) {
-			char column = sc.next().charAt(0);
-			int row = sc.nextInt();
-			char figure = sc.next().toUpperCase().charAt(0);
-			
-			UI.puttingDuringGame(column, row, figure, match);
 			
 			UI.printBoard(match.getFigures());
+			
+			System.out.print("Position: ");
+			String pos = sc.next();
+			TicTacToePosition position = UI.readChessPosition(pos);
+			
+			System.out.print("Figure: ");
+			char figure = sc.next().toUpperCase().charAt(0);
+			
+			UI.puttingDuringGame(position.getColumn(), position.getRow(), figure, match);
 		}
 		
 	}
