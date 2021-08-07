@@ -16,7 +16,7 @@ public class MainProgram {
 		TicTacToeMatch match = new TicTacToeMatch();
 		
 		
-		while (true) {
+		while (UI.testEndGame(match.getFigures())) {
 			try {
 				UI.clearScreen();
 				UI.printBoard(match.getFigures());
@@ -40,6 +40,9 @@ public class MainProgram {
 			}
 
 		}
-
+		UI.clearScreen();
+		UI.printBoard(match.getFigures());
+		sc.close();
 	}
+	
 }

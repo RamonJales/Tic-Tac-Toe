@@ -27,6 +27,24 @@ public class UI {
 		System.out.println("  a b c");
 	}
 	
+	public static boolean testEndGame(TicTacToeFigure[][] figures) {
+		int sum = 0;
+		for (int i = 0; i < figures.length; i++) {
+			for (int j = 0; j < figures.length; j++) {
+				if (figures[i][j] != null) {
+					sum += 1;
+				}
+			}
+		}
+		if (sum == 9) {
+			return false;
+		}
+		else {
+			return true;
+		}
+		
+	}
+	
 	private static void printFigure(TicTacToeFigure figure) {
 		if (figure == null) {
 			System.out.print("-");
